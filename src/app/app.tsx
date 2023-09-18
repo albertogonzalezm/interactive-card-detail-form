@@ -24,12 +24,8 @@ function CardForm() {
     return;
   }
 
-  if (values["card-number"]) {
-    let correct = values["card-number"].split("");
-    correct.splice(4, 0, " ");
-    correct.splice(9, 0, " ");
-    correct.splice(14, 0, " ");
-    values["card-number"] = correct.join("");
+  if (values["card-number"] && values["card-number"].length <= 16) {
+    values["card-number"] = values["card-number"].match(/.{1,4}/g).join(" ");
   }
 
   return (
@@ -42,6 +38,7 @@ function CardForm() {
             name="cardholder-name"
             placeholder="e.g. Jane Applessed"
             minLength={2}
+            maxLength={32}
             onChange={handleChange}
             style={{
               border: emptyFields["cardholder-name"] ? "1px solid hsl(0, 100%, 66%)" : "",
