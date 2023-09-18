@@ -18,6 +18,7 @@ main {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
 }
@@ -112,7 +113,7 @@ form {
 
 form label {
   color: hsl(278, 68%, 11%);
-  margin: 0px 5px;
+  margin: 5px;
   font-size: 14px;
 }
 
@@ -126,19 +127,31 @@ form input {
   border: 1px solid hsl(270, 3%, 87%);
   border-radius: 5px;
   padding: 10px 15px;
-  margin: 5px 5px 25px 5px;
+  margin: 5px;
 }
 
 form input:focus {
-  border: 2px solid;
+  border: 1px solid;
   border-image-source: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
   border-image-slice: 1;
+}
+
+#cardholder-name, #card-number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.leyend {
+  font-size: 12px;
+  margin: 5px;
 }
 
 .down {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .down .cvc input {
