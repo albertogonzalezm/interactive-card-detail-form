@@ -17,10 +17,11 @@ function CardForm() {
     cvc: false,
   });
 
-  function handleChange(event): void {
+  function handleChange(event: any) {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
     setEmptyFields({ ...emptyFields, [name]: !value });
+    return;
   }
 
   if (values["card-number"]) {
@@ -143,7 +144,7 @@ function CardForm() {
   );
 }
 
-function CardImages({ data }) {
+function CardImages({ data }: any) {
   return (
     <div className="card-image-desktop">
       <div className="bg-front-card">
