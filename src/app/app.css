@@ -7,37 +7,109 @@
   font-size: 18px;
 }
 
-body {
-  background-image: url("/images/bg-main-desktop.png");
-  background-repeat: no-repeat;
-  height: 100vh;
-  min-width: 1080px;
+@media screen and (width>=1000px) {
+  body {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    background-size: 34vw 100%;
+    transition: 0.3s;
+  }
+
+  main {
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .bg-front-card {
+    background-image: url("/images/bg-card-front.png");
+    margin: 24px;
+    float: left;
+  }
+
+  .bg-back-card {
+    background-image: url("/images/bg-card-back.png");
+    margin: 24px;
+    float: right;
+  }
+
+  form {
+    margin: 24px;
+  }
+
+  .card-image-desktop {
+    margin: 24px;
+  }
 }
 
-main {
-  width: 100%;
-  height: 100%;
+@media screen and (min-width: 375px) and (max-width: 999px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/images/bg-main-mobile.png");
+    background-repeat: no-repeat;
+    background-size: 100vw 50vh;
+    transition: 0.3s;
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .card-image-desktop {
+    margin: 12px;
+    /* height: 400px; */
+  }
+
+  .bg-front-card {
+    background-image: url("/images/bg-card-front.png");
+    /* position: relative;
+    top: 139px;
+    z-index: 2; */
+  }
+
+  .bg-back-card {
+    background-image: url("/images/bg-card-back.png");
+    /* position: absolute;
+    top: 17px;
+    z-index: 1; */
+  }
+
+  form {
+    margin: 12px;
+  }
+}
+
+form {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  min-width: 375px;
+  max-width: 450px;
+  padding: 5px;
 }
 
 .card-image-desktop {
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center; */
-  width: 617px;
+  max-width: 642px;
+  padding: 5px;
 }
 
 .bg-front-card,
 .bg-back-card {
-  margin: 24px;
-}
-
-.bg-front-card {
-  float: left;
+  border-radius: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 447px;
+  height: 245px;
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px 5px;
 }
 
 .bg-front-card img {
@@ -46,54 +118,25 @@ main {
   left: 25px;
 }
 
-.bg-front-card-inter {
+.bg-front-card .card-number {
   position: relative;
-  bottom: -47px;
-  width: auto;
-  margin: 5px;
-  padding: 20px;
-}
-
-.bg-front-card-inter .card-number {
-  margin: 20px 0px;
+  box-sizing: border-box;
+  margin: 25px 25px;
   word-spacing: 5px;
   letter-spacing: 3px;
-  font-size: 28px;
+  font-size: 1.55em;
 }
 
-.bg-front-card-inter .cardholder-name {
+.bg-front-card .cardholder-name {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  margin: 25px 25px;
 }
 
-.bg-front-card-inter .cardholder-name p {
-  font-size: 16px;
-}
-
-.bg-back-card {
-  float: right;
-}
-
-.bg-front-card {
-  border-radius: 15px;
-  background-image: url("/images/bg-card-front.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 447px;
-  height: 245px;
-  color: hsl(0, 0%, 100%);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px 5px;
-}
-
-.bg-back-card {
-  border-radius: 15px;
-  background-image: url("/images/bg-card-back.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 447px;
-  height: 245px;
-  color: hsl(0, 0%, 100%);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px 5px;
+.bg-front-card .cardholder-name p {
+  font-size: 0.89em;
 }
 
 .bg-back-card p {
@@ -101,20 +144,14 @@ main {
   position: relative;
   top: 107px;
   left: 365px;
-  font-size: 14px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  min-width: 475px;
-  margin: 24px;
+  font-size: 0.89em;
 }
 
 form label {
+  display: block;
   color: hsl(278, 68%, 11%);
   margin: 5px;
-  font-size: 14px;
+  font-size: 0.78em;
 }
 
 form input::placeholder {
@@ -136,30 +173,39 @@ form input:focus {
   border-image-slice: 1;
 }
 
-#cardholder-name, #card-number {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
 .leyend {
-  font-size: 12px;
+  font-size: 0.67em;
   margin: 5px;
 }
 
 .down {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
   margin-bottom: 20px;
+  width: auto;
 }
 
-.down .cvc input {
-  width: 180px;
+.exp-date,
+.cvc {
+  width: 50%;
 }
 
-.inputs-exp-date input {
-  width: 64px;
+.down div input {
+  box-sizing: border-box;
+}
+
+.cvc input {
+  width: 95%;
+}
+.exp-date input {
+  max-width: 40%;
+}
+
+#cardholder-name,
+#card-number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 button {

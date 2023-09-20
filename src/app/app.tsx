@@ -74,64 +74,56 @@ function CardForm() {
           </p>
         </div>
         <div className="down">
-          <div className="exp-date-m exp-date-y">
-            <label htmlFor="exp-date">EXP. DATE (MM/YY)</label>
-            <div className="inputs-exp-date">
-              <input
-                type="text"
-                name="exp-date-m"
-                minLength={2}
-                maxLength={2}
-                placeholder="MM"
-                onChange={handleChange}
-                style={{
-                  border: emptyFields["exp-date-m"] ? "1px solid hsl(0, 100%, 66%)" : "",
-                }}
-              />
-              <input
-                type="text"
-                name="exp-date-y"
-                minLength={2}
-                maxLength={2}
-                placeholder="YY"
-                onChange={handleChange}
-                style={{
-                  border: emptyFields["exp-date-y"] ? "1px solid hsl(0, 100%, 66%)" : "",
-                }}
-              />
-              <p
-                className="leyend"
-                hidden={!emptyFields["exp-date-y"] || !emptyFields["exp-date-m"]}
-                style={{
-                  color: "hsl(0, 100%, 66%)",
-                }}
-              >
-                {"Can't be blank"}
-              </p>
-            </div>
+          <div className="exp-date">
+            <label htmlFor="exp-date-m exp-date-y">EXP. DATE (MM/YY)</label>
+            <input
+              type="text"
+              name="exp-date-m"
+              minLength={2}
+              maxLength={2}
+              placeholder="MM"
+              onChange={handleChange}
+              style={{
+                border: emptyFields["exp-date-m"] ? "1px solid hsl(0, 100%, 66%)" : "",
+              }}
+            />
+            <input
+              type="text"
+              name="exp-date-y"
+              minLength={2}
+              maxLength={2}
+              placeholder="YY"
+              onChange={handleChange}
+              style={{
+                border: emptyFields["exp-date-y"] ? "1px solid hsl(0, 100%, 66%)" : "",
+              }}
+            />
+            <p
+              className="leyend"
+              hidden={!emptyFields["exp-date-y"] && !emptyFields["exp-date-m"]}
+              style={{
+                color: "hsl(0, 100%, 66%)",
+              }}
+            >
+              {"Can't be blank"}
+            </p>
           </div>
           <div className="cvc">
             <label htmlFor="cvc">CVC</label>
-            <div>
-              <input
-                type="text"
-                name="cvc"
-                maxLength={3}
-                minLength={3}
-                placeholder="e.g. 123"
-                onChange={handleChange}
-                style={{
-                  border: emptyFields.cvc ? "1px solid hsl(0, 100%, 66%)" : "",
-                }}
-              />
-              <p
-                className="leyend"
-                hidden={!emptyFields.cvc}
-                style={{ color: "hsl(0, 100%, 66%)" }}
-              >
-                {"Can't be blank"}
-              </p>
-            </div>
+            <input
+              type="text"
+              name="cvc"
+              maxLength={3}
+              minLength={3}
+              placeholder="e.g. 123"
+              onChange={handleChange}
+              style={{
+                border: emptyFields.cvc ? "1px solid hsl(0, 100%, 66%)" : "",
+              }}
+            />
+            <p className="leyend" hidden={!emptyFields.cvc} style={{ color: "hsl(0, 100%, 66%)" }}>
+              {"Can't be blank"}
+            </p>
           </div>
         </div>
         <button type="submit">Confirm</button>
@@ -146,19 +138,17 @@ function CardImages({ data }: any) {
     <div className="card-image-desktop">
       <div className="bg-front-card">
         <img src="/images/card-logo.svg" alt="card-logo" />
-        <div className="bg-front-card-inter">
-          <p className="card-number">
-            {data["card-number"] ? data["card-number"] : "0000 0000 0000 0000"}
+        <p className="card-number">
+          {data["card-number"] ? data["card-number"] : "0000 0000 0000 0000"}
+        </p>
+        <div className="cardholder-name">
+          <p>
+            {data["cardholder-name"] ? data["cardholder-name"].toUpperCase() : "JANE APPLESSED"}
           </p>
-          <div className="cardholder-name">
-            <p>
-              {data["cardholder-name"] ? data["cardholder-name"].toUpperCase() : "JANE APPLESSED"}
-            </p>
-            <p>
-              {data["exp-date-m"] ? data["exp-date-m"] : "00"}/
-              {data["exp-date-y"] ? data["exp-date-y"] : "00"}
-            </p>
-          </div>
+          <p>
+            {data["exp-date-m"] ? data["exp-date-m"] : "00"}/
+            {data["exp-date-y"] ? data["exp-date-y"] : "00"}
+          </p>
         </div>
       </div>
       <div className="bg-back-card">
