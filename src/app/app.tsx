@@ -141,11 +141,11 @@ function CardImages({ data }: any) {
         <p className="card-number">
           {data["card-number"] ? data["card-number"] : "0000 0000 0000 0000"}
         </p>
-        <div className="cardholder-name">
-          <p>
+        <div className="cardholder">
+          <p className="card-name">
             {data["cardholder-name"] ? data["cardholder-name"].toUpperCase() : "JANE APPLESSED"}
           </p>
-          <p>
+          <p className="card-exp-date">
             {data["exp-date-m"] ? data["exp-date-m"] : "00"}/
             {data["exp-date-y"] ? data["exp-date-y"] : "00"}
           </p>
