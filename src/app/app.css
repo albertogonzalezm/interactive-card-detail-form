@@ -7,6 +7,113 @@
   font-size: 18px;
 }
 
+.bg-front-card img {
+  width: 20%;
+}
+
+.card-number {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 375px;
+  max-width: 450px;
+  padding: 5px;
+}
+
+.card-image-desktop {
+  max-width: 642px;
+  width: 100%;
+}
+
+.bg-front-card,
+.bg-back-card {
+  border-radius: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px 5px;
+}
+
+form label {
+  display: block;
+  color: hsl(278, 68%, 11%);
+  margin: 5px;
+  font-size: 0.78em;
+}
+
+form input::placeholder {
+  color: hsl(279, 6%, 55%);
+}
+
+form input {
+  color: hsl(278, 68%, 11%);
+  outline: none;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+form input:focus {
+  border: 1px solid;
+  border-image-source: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  border-image-slice: 1;
+}
+
+.leyend {
+  font-size: 0.67em;
+  margin: 5px;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  width: auto;
+}
+
+.exp-date,
+.cvc {
+  width: 50%;
+}
+
+.down div input {
+  box-sizing: border-box;
+}
+
+.cvc input {
+  width: 95%;
+}
+.exp-date input {
+  max-width: 40%;
+}
+
+#cardholder-name,
+#card-number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+button {
+  border: 0px;
+  color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  background-color: hsl(278, 68%, 11%);
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+button:active {
+  border: 0px;
+  background: rgb(24, 115, 113);
+}
+
 @media screen and (width>=1000px) {
   body {
     width: 100%;
@@ -110,6 +217,10 @@
     width: 100%;
   }
 
+  .card-image-desktop {
+    max-width: 378px;
+  }
+
   .bg-front-card,
   .bg-back-card {
     position: relative;
@@ -206,9 +317,13 @@
     top: 72px;
     left: 266px;
   }
+
+  /* .card-number {
+    min-width: 291.487px;
+  } */
 }
 
-@media screen and (width>= 375px) and (width<=400px) {
+@media screen and (width>= 374px) and (width<=400px) {
   body {
     background-size: 100vw 30vh;
   }
@@ -229,115 +344,17 @@
 
   .card-number,
   .cardholder {
-    bottom: -17px;
+    bottom: -46px;
     margin: 15px;
-    font-size: 1.1em;
+    font-size: 0.96em;
   }
 
   .bg-back-card p {
     top: 64px;
     left: 245px;
   }
-}
 
-.bg-front-card img {
-  width: 20%;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 375px;
-  max-width: 450px;
-  padding: 5px;
-}
-
-.card-image-desktop {
-  max-width: 642px;
-}
-
-.bg-front-card,
-.bg-back-card {
-  border-radius: 15px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: hsl(0, 0%, 100%);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px 5px;
-}
-
-form label {
-  display: block;
-  color: hsl(278, 68%, 11%);
-  margin: 5px;
-  font-size: 0.78em;
-}
-
-form input::placeholder {
-  color: hsl(279, 6%, 55%);
-}
-
-form input {
-  color: hsl(278, 68%, 11%);
-  outline: none;
-  border: 1px solid hsl(270, 3%, 87%);
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin: 5px;
-}
-
-form input:focus {
-  border: 1px solid;
-  border-image-source: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
-  border-image-slice: 1;
-}
-
-.leyend {
-  font-size: 0.67em;
-  margin: 5px;
-}
-
-.down {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
-  width: auto;
-}
-
-.exp-date,
-.cvc {
-  width: 50%;
-}
-
-.down div input {
-  box-sizing: border-box;
-}
-
-.cvc input {
-  width: 95%;
-}
-.exp-date input {
-  max-width: 40%;
-}
-
-#cardholder-name,
-#card-number {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-button {
-  border: 0px;
-  color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  background-color: hsl(278, 68%, 11%);
-  padding: 10px 15px;
-  margin: 5px;
-}
-
-button:active {
-  border: 0px;
-  background: rgb(24, 115, 113);
+  /* .card-number {
+    min-width: 263.55px;
+  } */
 }
