@@ -25,7 +25,10 @@ function CardForm() {
   }
 
   if (values["card-number"] && values["card-number"].length <= 16) {
-    values["card-number"] = values["card-number"].match(/.{1,4}/g).join(" ");
+    let x = values["card-number"].match(/.{1,4}/g);
+    if (x) {
+      values["card-number"] = x.join(" ");
+    }
   }
 
   return (
