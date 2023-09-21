@@ -7,21 +7,54 @@
   font-size: 18px;
 }
 
+body {
+  height: 100vh;
+  background-image: url("/images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+main {
+  display: flex;
+  align-items: center;
+}
+
+.complete-state div {
+  align-items: center;
+}
+
+.formdiv {
+  min-width: 375px;
+  max-width: 450px;
+}
+
+form, .complete-state div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.complete-state-h{
+  font-size: 1.8em;
+  font-weight: 100;
+  color: hsl(278, 68%, 11%)
+}
+
+.complete-state-p{
+  color: hsl(279, 6%, 55%);
+}
+
+.complete-state-h, .complete-state-p{
+  margin-top: 10%;
+}
+
 .bg-front-card img {
   width: 20%;
 }
 
 .card-number {
   width: 100%;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 375px;
-  max-width: 450px;
-  padding: 5px;
 }
 
 .card-image-desktop {
@@ -46,10 +79,6 @@ form label {
   font-size: 0.78em;
 }
 
-form input::placeholder {
-  color: hsl(279, 6%, 55%);
-}
-
 form input {
   color: hsl(278, 68%, 11%);
   outline: none;
@@ -59,10 +88,21 @@ form input {
   margin: 5px;
 }
 
+form input::placeholder {
+  color: hsl(279, 6%, 55%);
+}
+
 form input:focus {
   border: 1px solid;
   border-image-source: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
   border-image-slice: 1;
+}
+
+#cardholder-name,
+#card-number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .leyend {
@@ -77,27 +117,21 @@ form input:focus {
   width: auto;
 }
 
+.down div input {
+  box-sizing: border-box;
+}
+
+.exp-date input {
+  max-width: 40%;
+}
+
 .exp-date,
 .cvc {
   width: 50%;
 }
 
-.down div input {
-  box-sizing: border-box;
-}
-
 .cvc input {
   width: 95%;
-}
-.exp-date input {
-  max-width: 40%;
-}
-
-#cardholder-name,
-#card-number {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
 }
 
 button {
@@ -114,52 +148,46 @@ button:active {
   background: rgb(24, 115, 113);
 }
 
+.bg-front-card,
+.bg-front-card img,
+.card-number,
+.cardholder,
+.bg-back-card p {
+  position: relative;
+}
+
+.bg-front-card {
+  background-image: url("/images/bg-card-front.png");
+  float: left;
+}
+
+.bg-back-card {
+  background-image: url("/images/bg-card-back.png");
+  float: right;
+}
+
 @media screen and (width>=1000px) {
   body {
     width: 100%;
-    height: 100vh;
-    background-image: url("/images/bg-main-desktop.png");
-    background-repeat: no-repeat;
     background-size: 34vw 100%;
-    transition: 0.3s;
   }
 
   main {
-    height: 100%;
-    display: flex;
     flex-direction: row-reverse;
-    align-items: center;
     justify-content: space-around;
+    height: 100%;
   }
 
-  .card-image-desktop {
-    margin: 24px;
-  }
-
-  .bg-front-card {
-    background-image: url("/images/bg-card-front.png");
-    width: 447px;
-    height: 245px;
-    margin: 24px;
-    float: left;
-    transition: 0.5s;
-  }
-
-  .bg-back-card {
-    background-image: url("/images/bg-card-back.png");
-    width: 447px;
-    height: 245px;
-    margin: 24px;
-    float: right;
-    transition: 0.5s;
+  .complete-state div {
+    width: 450px;
   }
 
   .bg-front-card,
-  .bg-front-card img,
-  .card-number,
-  .cardholder,
-  .bg-back-card p {
-    position: relative;
+  .bg-back-card {
+    width: 447px;
+    height: 245px;
+    margin: 24px;
+    transition: 0.5s;
   }
 
   .cardholder p,
@@ -192,28 +220,18 @@ button:active {
     top: 109px;
     left: 365px;
   }
-
-  form {
-    margin: 24px;
-  }
 }
 
 @media screen and (width>= 375px) and (width < 1000px) {
   body {
-    height: 100vh;
     width: 100vw;
     box-sizing: border-box;
     padding: 40px;
-    background-image: url("/images/bg-main-mobile.png");
-    background-repeat: no-repeat;
     background-size: 100vw 50vh;
-    transition: 0.3s;
   }
 
   main {
-    display: flex;
     flex-direction: column-reverse;
-    align-items: center;
     width: 100%;
   }
 
@@ -231,14 +249,12 @@ button:active {
   }
 
   .bg-front-card {
-    background-image: url("/images/bg-card-front.png");
     z-index: 2;
     top: 118px;
     right: 10%;
   }
 
   .bg-back-card {
-    background-image: url("/images/bg-card-back.png");
     z-index: 1;
     top: -206px;
     left: 10%;
@@ -281,10 +297,6 @@ button:active {
     top: 90px;
     left: 305px;
   }
-
-  form {
-    margin: 12px;
-  }
 }
 
 @media screen and (width <= 426px) and (width>=400px) {
@@ -317,10 +329,6 @@ button:active {
     top: 72px;
     left: 266px;
   }
-
-  /* .card-number {
-    min-width: 291.487px;
-  } */
 }
 
 @media screen and (width>= 374px) and (width<=400px) {
@@ -353,8 +361,4 @@ button:active {
     top: 64px;
     left: 245px;
   }
-
-  /* .card-number {
-    min-width: 263.55px;
-  } */
 }
