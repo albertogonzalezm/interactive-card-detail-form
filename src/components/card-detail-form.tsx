@@ -34,10 +34,10 @@ export default function CardForm() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    let obj = {};
+    let obj: { [key: string]: any } = {};
     for (const key in values) {
-      if (!values[key]) {
-        obj[key] = !values[key];
+      if (!values[key as keyof typeof values]) {
+        obj[key] = !values[key as keyof typeof values];
       }
     }
 
