@@ -5,11 +5,11 @@ import CompleteState from "./complete-state";
 
 export default function CardForm() {
   const [values, setValues] = useState({
-    "cardholder-name": "JANE APPLESSED",
+    "cardholder-name": "",
     "card-number": "",
-    "exp-date-m": "00",
-    "exp-date-y": "00",
-    cvc: "000",
+    "exp-date-m": "",
+    "exp-date-y": "",
+    cvc: "",
   });
   const [emptyFields, setEmptyFields] = useState({
     "cardholder-name": false,
@@ -20,15 +20,27 @@ export default function CardForm() {
   });
   const [completeState, setCompleteState] = useState(false);
 
-  function handleChange(event: any): void {
+  function handleChange(event: any) {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
     setEmptyFields({ ...emptyFields, [name]: !value });
   }
 
-  function handleSubmit(event: any): void {
+  function handleSubmit(event: any) {
     event.preventDefault();
+    let obj = {};
+    for (const key in values) {
+      if (!values[key]) {
+        obj[key] = !values[key];
+      }
+    }
+
+    if (Object.keys(obj).length) {
+      setEmptyFields({ ...emptyFields, ...obj });
+      return;
+    }
     setCompleteState(true);
+    return;
   }
 
   if (values["card-number"] && values["card-number"].length <= 16) {
