@@ -22,6 +22,12 @@ export default function CardForm() {
 
   function handleChange(event: any) {
     const { name, value } = event.target;
+    if (
+      (name === "cardholder-name" && value.match(/[0-9]/)) ||
+      (name !== "cardholder-name" && isNaN(value))
+    ) {
+      return;
+    }
     setValues({ ...values, [name]: value });
     setEmptyFields({ ...emptyFields, [name]: !value });
   }
